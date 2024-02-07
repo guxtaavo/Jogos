@@ -1,0 +1,2 @@
+class JogoDaForca:
+    pass

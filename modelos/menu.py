@@ -1,35 +1,46 @@
-class Menu:
+from modelos.jogo_da_adivinhacao import JogoDaAdivinhacao
+import os
 
-    @staticmethod
-    def exibir_a_mensagem_inicial():
+class Menu:
+    def _exibir_a_mensagem_inicial():
         print('*'*28)
         print('▀▄▀▄▀▄★彡[ᴊᴏɢᴏꜱ]彡★▀▄▀▄▀▄')
         print('*'*28)
 
 
-    @staticmethod
-    def valida_a_opcao():
-        pass
+    def _valida_a_opcao(opcao):
+        while True:
+            if opcao in [1, 2, 3, 4]:
+                match opcao:
+                    case 1:
+                        return JogoDaAdivinhacao.rodar_o_jogo()
+                    case 2: 
+                        return print('2')
+                    case 3: 
+                        return print('3')
+                    case 4:
+                        return print('Saindo do programa... Volte sempre!')
 
-    @staticmethod
-    def escolher_o_jogo():
+            else:
+                opcao_escolhida = int(input('Você digitou uma opção inválida, porfavor, digite novamente: '))
+
+    
+    def _escolher_o_jogo():
         print('Seja bem-vindx!!!')
         print('1. Adivinhe o número')
         print('2. Forca')
         print('3. Jogo da velha')
         print('4. Sair')
-        opcao_escolhida = int(input('Por favor, escolha a opção desejada: '))
+        try:
+            opcao_escolhida = int(input('Por favor, escolha a opção desejada: '))
+            Menu._valida_a_opcao(opcao_escolhida)
+        except:
+            print(f'Você digitou algo inválido. Porfavor, tente novamente mais tarde.')
 
-        while True:
-            if opcao_escolhida in [1, 2, 3, 4]:
-                print('validado')
-                break
-
-            else:
-                opcao_escolhida = int(input('Você digitou uma opção inválida, porfavor, digite novamente.'))
 
     @staticmethod
     def exibir_o_menu():
-        Menu.exibir_a_mensagem_inicial()
-        Menu.escolher_o_jogo()
+        os.system('cls')
+        Menu._exibir_a_mensagem_inicial()
+        Menu._escolher_o_jogo()
         
