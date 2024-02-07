@@ -1,6 +1,5 @@
 from random import randint
 import os
-numero_aleatorio = randint(0,100)
 
 class JogoDaAdivinhacao:
     def _exibir_a_mensagem_inicial():
@@ -55,6 +54,8 @@ class JogoDaAdivinhacao:
             vidas = 5
         else:
             vidas = 3
+        
+        numero_aleatorio = randint(0,100)
 
         chute = int(input('Porfavor, tente adivinhar o numero: '))
         loop = True
@@ -73,7 +74,7 @@ class JogoDaAdivinhacao:
                     JogoDaAdivinhacao._exibir_mensagem_final_de_jogo()
             elif chute == numero_aleatorio:
                 os.system('cls')
-                print('Parabéns, você é um gênio! Ganhou!')
+                print(f'Parabéns, você é um gênio! Ganhou! O número correto era {numero_aleatorio}.')
                 loop = False
                 JogoDaAdivinhacao._exibir_mensagem_final_de_jogo()
             else:
