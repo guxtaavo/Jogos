@@ -9,7 +9,7 @@ class JogoDaAdivinhacao:
 
     def _valida_a_opcao(opcao):
         while True:
-            if opcao in [1, 2, 3, 4]:
+            if opcao in [1, 2, 3, 4]: 
                 match opcao:
                     case 1:
                         print('Você escolheu o nível fácil...\n')
@@ -45,9 +45,9 @@ class JogoDaAdivinhacao:
                 else:
                     escolha = int(input('Você digitou uma opção inválida, tente novamente:  '))
         except:
-            print('Você digitou algo inválido... tente novamente mais tarde.')
+            print('Você digitou algo inválido. Tente novamente mais tarde.')
     
-    def jogar(opcao):
+    def _jogar(opcao):
         if opcao == 1:
             vidas = 7
         elif opcao == 2:
@@ -100,7 +100,7 @@ class JogoDaAdivinhacao:
         except:
             print(f'Você digitou algo inválido. Porfavor, tente novamente mais tarde.')
         else:
-            JogoDaAdivinhacao.jogar(opcao_validada)
+            JogoDaAdivinhacao._jogar(opcao_validada)
             
 
     @staticmethod

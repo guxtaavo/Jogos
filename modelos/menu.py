@@ -1,4 +1,5 @@
 from modelos.jogo_da_adivinhacao import JogoDaAdivinhacao
+from modelos.jogo_da_forca import JogoDaForca
 import os
 
 class Menu:
@@ -15,7 +16,7 @@ class Menu:
                     case 1:
                         return JogoDaAdivinhacao.rodar_o_jogo()
                     case 2: 
-                        return print('2')
+                        return JogoDaForca.rodar_o_jogo()
                     case 3: 
                         return print('3')
                     case 4:
