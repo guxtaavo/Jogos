@@ -1,14 +1,13 @@
 import os
 from random import randrange
-import sys
 
 class JogoDaForca:
-    def _exibir_a_mensagem_inicial():
+    def _exibir_a_mensagem_inicial(self) -> None:
         os.system('cls')
         print('𝕁𝕆𝔾𝕆 𝔻𝔸 𝔽𝕆ℝℂ𝔸')
         print('Olá, você escolheu a opção de jogar o jogo da forca!')
 
-    def _valida_a_opcao(opcao):
+    def _valida_a_opcao(self, opcao) -> int:
         while True:
             if opcao in [1, 2]:
                 match opcao:
@@ -21,7 +20,7 @@ class JogoDaForca:
             else:
                 opcao = int(input('Você digitou uma opção inválida, porfavor, digite novamente: '))
 
-    def _abrir_o_arquivo(tema):
+    def _abrir_o_arquivo(self, tema):
         arquivo = open(f'modelos/listas_jogo_da_forca/{tema}.txt', 'r')
         palavras = []
         for linha in arquivo:
@@ -32,7 +31,7 @@ class JogoDaForca:
         print(palavras)
         return palavras
 
-    def _exibir_mensagem_final_de_jogo():
+    def _exibir_mensagem_final_de_jogo(self):
         print()
         print('*'*20)
         print('1. Jogar novamente')
@@ -46,7 +45,7 @@ class JogoDaForca:
                 if escolha in [1,2]:
                     if escolha == 1:
                         os.system('cls')
-                        JogoDaForca.rodar_o_jogo()
+                        self.rodar_o_jogo()
                     else:
                         print('Volte mais vezes! Até a próxima...')
                         loop = False
@@ -55,13 +54,13 @@ class JogoDaForca:
         except:
             print('Você digitou algo inválido. Tente novamente mais tarde.')
     
-    def _jogar(opcao):
+    def _jogar(self, opcao):
         if opcao == 1:
             tema = 'futebol'
         else:
             tema = 'frutas'
         try:
-            palavras = JogoDaForca._abrir_o_arquivo(tema)
+            palavras = self._abrir_o_arquivo(tema)
             numero = randrange(0, len(palavras))
             palavra_secreta = palavras[numero].upper()
             exibir_a_palavra = palavra_secreta
@@ -83,7 +82,7 @@ class JogoDaForca:
                         os.system('cls')
                         print(f'PARABÉNSSS!!!! VOCÊ GANHOU!!!\nA palavra correta era: {exibir_a_palavra}')
                         vidas = 0
-                        JogoDaForca._exibir_mensagem_final_de_jogo()
+                        self._exibir_mensagem_final_de_jogo()
                 else:
                     print('Letra não encontrada.')
                     vidas -= 1
@@ -91,25 +90,26 @@ class JogoDaForca:
                         os.system('cls')
                         palavra_secreta = palavra_secreta.title()
                         print(f'Game over! Você é grená e foi enforcado.\nA palavra correta era: {exibir_a_palavra}')
-                        JogoDaForca._exibir_mensagem_final_de_jogo()
+                        self._exibir_mensagem_final_de_jogo()
                 
         except:
             print('Erro ao abrir o arquivo.')
 
             
-    def _escolha_do_tema():
+    def _escolha_do_tema(self):
         print('1. Futebol')
         print('2. Frutas')
         try:
             opcao = int(input('Por favor, escolha a opção desejada: '))
-            opcao_validada = JogoDaForca._valida_a_opcao(opcao)
+            opcao_validada = self._valida_a_opcao(opcao)
         except:
             print(f'Você digitou algo inválido. Porfavor, tente novamente mais tarde.')
         else:
-            JogoDaForca._jogar(opcao_validada)
+            self._jogar(opcao_validada)
             
 
     @staticmethod
     def rodar_o_jogo():
-        JogoDaForca._exibir_a_mensagem_inicial()
-        JogoDaForca._escolha_do_tema()
+        jogo_da_forca = JogoDaForca()
+        jogo_da_forca._exibir_a_mensagem_inicial()
+        jogo_da_forca._escolha_do_tema()

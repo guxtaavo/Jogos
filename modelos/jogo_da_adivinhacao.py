@@ -2,12 +2,12 @@ from random import randint
 import os
 
 class JogoDaAdivinhacao:
-    def _exibir_a_mensagem_inicial():
+    def _exibir_a_mensagem_inicial(self) -> None:
         os.system('cls')
         print('𝐉𝐎𝐆𝐎 𝐃𝐀 𝐀𝐃𝐈𝐕𝐈𝐍𝐇𝐀ÇÃ𝐎')
         print('Olá, você escolheu a opção de jogar o jogo da adivinhação!')
 
-    def _valida_a_opcao(opcao):
+    def _valida_a_opcao(self, opcao) -> int:
         while True:
             if opcao in [1, 2, 3, 4]: 
                 match opcao:
@@ -23,7 +23,7 @@ class JogoDaAdivinhacao:
             else:
                 opcao = int(input('Você digitou uma opção inválida, porfavor, digite novamente: '))
 
-    def _exibir_mensagem_final_de_jogo():
+    def _exibir_mensagem_final_de_jogo(self):
         print()
         print('*'*20)
         print('1. Jogar novamente')
@@ -37,7 +37,7 @@ class JogoDaAdivinhacao:
                 if escolha in [1,2]:
                     if escolha == 1:
                         os.system('cls')
-                        JogoDaAdivinhacao.rodar_o_jogo()
+                        self.rodar_o_jogo()
                         loop = False
                     else:
                         print('Volte mais vezes! Até a próxima...')
@@ -47,7 +47,7 @@ class JogoDaAdivinhacao:
         except:
             print('Você digitou algo inválido. Tente novamente mais tarde.')
     
-    def _jogar(opcao):
+    def _jogar(self, opcao):
         if opcao == 1:
             vidas = 7
         elif opcao == 2:
@@ -71,12 +71,12 @@ class JogoDaAdivinhacao:
                     os.system('cls')
                     print(f'Que pena, você não teve sorte dessa vez... O número correto era: {numero_aleatorio}.')
                     loop = False
-                    JogoDaAdivinhacao._exibir_mensagem_final_de_jogo()
+                    self._exibir_mensagem_final_de_jogo()
             elif chute == numero_aleatorio:
                 os.system('cls')
                 print(f'Parabéns, você é um gênio! Ganhou! O número correto era {numero_aleatorio}.')
                 loop = False
-                JogoDaAdivinhacao._exibir_mensagem_final_de_jogo()
+                self._exibir_mensagem_final_de_jogo()
             else:
                 print('Você digitou um número menor... ')
                 vidas -= 1
@@ -86,25 +86,25 @@ class JogoDaAdivinhacao:
                     os.system('cls')
                     print(f'Que pena, você não teve sorte dessa vez... O número correto era: {numero_aleatorio}.')
                     loop = False
-                    JogoDaAdivinhacao._exibir_mensagem_final_de_jogo()
+                    self._exibir_mensagem_final_de_jogo()
 
             
 
-    def _escolha_da_dificuldade():
+    def _escolha_da_dificuldade(self):
         print('1. Fácil')
         print('2. Médio')
         print('3. Dificil')
         try:
             opcao = int(input('Por favor, escolha a opção desejada: '))
-            opcao_validada = JogoDaAdivinhacao._valida_a_opcao(opcao)
+            opcao_validada = self._valida_a_opcao(opcao)
         except:
             print(f'Você digitou algo inválido. Porfavor, tente novamente mais tarde.')
         else:
-            JogoDaAdivinhacao._jogar(opcao_validada)
+            self._jogar(opcao_validada)
             
 
     @staticmethod
     def rodar_o_jogo():
-        numero_aleatorio = randint(0,100)
-        JogoDaAdivinhacao._exibir_a_mensagem_inicial()
-        JogoDaAdivinhacao._escolha_da_dificuldade()
+        jogo_da_adivinhacao = JogoDaAdivinhacao()
+        jogo_da_adivinhacao._exibir_a_mensagem_inicial()
+        jogo_da_adivinhacao._escolha_da_dificuldade()
