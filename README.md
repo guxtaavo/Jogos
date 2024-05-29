@@ -27,7 +27,7 @@ Para utilizar este projeto, siga as instruções abaixo:
 
 1. Faça o clone deste repositório para o seu ambiente local.
 2. Certifique-se de ter Python instalado em seu sistema.
-3. Apenas rode o programa que está com apenas dois jogos no momento: Forca e Adivinha o número.
+3. Rode o programa (no momento o jogo da velha está em desenvolvimento).
 
 ## Contribuições
 
