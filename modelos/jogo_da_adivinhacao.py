@@ -9,7 +9,7 @@ class JogoDaAdivinhacao:
 
     def _valida_a_opcao(self, opcao) -> int:
         while True:
-            if opcao in [1, 2, 3, 4]: 
+            if opcao in [1, 2, 3]: 
                 match opcao:
                     case 1:
                         print('Você escolheu o nível fácil...\n')
@@ -90,7 +90,7 @@ class JogoDaAdivinhacao:
 
             
 
-    def _escolha_da_dificuldade(self):
+    def _escolha_da_dificuldade(self) -> int:
         print('1. Fácil')
         print('2. Médio')
         print('3. Dificil')
@@ -99,12 +99,13 @@ class JogoDaAdivinhacao:
             opcao_validada = self._valida_a_opcao(opcao)
         except:
             print(f'Você digitou algo inválido. Porfavor, tente novamente mais tarde.')
-        else:
-            self._jogar(opcao_validada)
+        
+        return opcao_validada
             
 
     @staticmethod
     def rodar_o_jogo():
         jogo_da_adivinhacao = JogoDaAdivinhacao()
         jogo_da_adivinhacao._exibir_a_mensagem_inicial()
-        jogo_da_adivinhacao._escolha_da_dificuldade()
+        opcao = jogo_da_adivinhacao._escolha_da_dificuldade()
+        jogo_da_adivinhacao._jogar(opcao)
