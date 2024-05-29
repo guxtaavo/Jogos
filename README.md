@@ -7,7 +7,7 @@ O objetivo principal deste projeto é explorar e aprender a desenvolver jogos ut
 O projeto utiliza as seguintes tecnologias e ferramentas:
 
 - Python
-- Pygame (No momento em desenvolvimento)
+- Pygame
 
 <!--
 ## Funcionalidades
