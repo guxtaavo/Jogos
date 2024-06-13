@@ -37,11 +37,9 @@ Contribuições são bem-vindas! Se você identificar bugs, problemas de desempe
 
 Gustavo Nunes Lopes
 
-<!--
 ## Licença
 
-Este projeto está licenciado sob a [inserir licença utilizada] - veja o arquivo [LICENSE.md](LICENSE.md) para mais detalhes.
+Este projeto está licenciado sob a Licença MIT - veja o arquivo LICENSE.md para mais detalhes.
 
--->
 ---
 **Nota:** Este README serve como um guia básico. Sinta-se à vontade para expandi-lo ou adaptá-lo conforme necessário para refletir melhor o projeto.
